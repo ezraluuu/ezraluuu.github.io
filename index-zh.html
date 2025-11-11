@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ezra Lu · LLM-Focused Engineer</title>
-  <meta name="description" content="Ezra Lu – AI engineer focused on LLM agent systems, statistical modeling, and high-performance compute.">
+  <title>Ezra Lu · LLM 工程师</title>
+  <meta name="description" content="Ezra Lu – 专注大语言模型系统、统计建模与高性能计算的工程师。">
   <style>
     :root {
       color-scheme: light dark;
@@ -218,35 +218,35 @@
   </style>
 </head>
 <body>
-  <nav class="language-switch" aria-label="Language switcher">
-    <span aria-current="page">English</span>
-    <a href="index-zh.html" lang="zh-Hans">中文</a>
+  <nav class="language-switch" aria-label="语言切换">
+    <a href="index.html" lang="en">English</a>
+    <span lang="zh-Hans" aria-current="page">中文</span>
   </nav>
   <main>
     <header class="hero">
-      <h1>Engineering production-ready LLM systems.</h1>
+      <h1>专注打造可落地的 LLM 系统。</h1>
       <p>
-        I design and ship production-ready language model systems—melding statistical rigor with the speed of modern agent tooling.
-        From NLME solvers to document parsing pipelines, I focus on measurable impact and thoughtful evaluation loops.
+        我构建并上线语言模型系统——融合统计建模的严谨方法与现代智能体工具链的迭代速度。
+        无论是 NLME 求解器还是文档解析流水线，我关注的是可衡量的业务价值与周全的评估闭环。
       </p>
       <div class="cta">
-        <a class="btn primary" href="resume/resume_en.pdf" target="_blank" rel="noopener">English Résumé</a>
-        <a class="btn secondary" href="resume/resume_cn.pdf" target="_blank" rel="noopener">中文简历</a>
-        <a class="btn secondary" href="#notes">Latest Notes</a>
+        <a class="btn primary" href="resume/resume_cn.pdf" target="_blank" rel="noopener">中文简历</a>
+        <a class="btn secondary" href="resume/resume_en.pdf" target="_blank" rel="noopener">English Résumé</a>
+        <a class="btn secondary" href="#notes">最新笔记</a>
       </div>
     </header>
 
     <section id="notes">
-      <h2>Field Notes</h2>
-      <p class="lead">Quick drops from ongoing LLM experiments and infra learnings. Add any <code>.md</code> file to <code>/notes</code> and it will appear below.</p>
+      <h2>现场笔记</h2>
+      <p class="lead">记录正在进行的 LLM 实验与基础设施探索。把任意 <code>.md</code> 文件放到 <code>/notes</code> 目录，内容就会显示在这里。</p>
       <ul id="notes-list">
-        <li id="notes-loading">Loading notes…</li>
+        <li id="notes-loading">正在加载笔记…</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    Built with vanilla HTML/CSS + a sprinkle of JS. PDFs are generated from \LaTeX{} via GitHub Actions, so they stay in sync with the TeX sources.
+    使用原生 HTML/CSS 与少量 JS 构建。PDF 简历由 GitHub Actions 从 \LaTeX{} 源文件自动生成，保持与仓库内容同步。
   </footer>
 
   <script>
@@ -279,7 +279,7 @@
       notesListEl.innerHTML = '';
       if (!files.length) {
         const emptyItem = document.createElement('li');
-        emptyItem.textContent = 'Drop markdown files into the notes/ folder to see them here.';
+        emptyItem.textContent = '把 markdown 文件放进 notes/ 文件夹后会显示在这里。';
         notesListEl.appendChild(emptyItem);
         return;
       }
@@ -322,7 +322,7 @@
         }
         notesListEl.innerHTML = '';
         const fallback = document.createElement('li');
-        fallback.textContent = 'Unable to reach GitHub right now. Notes live in /notes on the repo.';
+        fallback.textContent = '暂时无法访问 GitHub，notes/ 目录里可查看所有笔记。';
         notesListEl.appendChild(fallback);
       }
     }
