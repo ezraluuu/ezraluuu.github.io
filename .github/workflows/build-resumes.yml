@@ -1,0 +1,37 @@
+name: Build résumés
+
+on:
+  push:
+    paths:
+      - 'resume/*.tex'
+      - '.github/workflows/build-resumes.yml'
+  pull_request:
+    paths:
+      - 'resume/*.tex'
+      - '.github/workflows/build-resumes.yml'
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile English résumé
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume/resume_en.tex
+
+      - name: Compile Chinese résumé
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume/resume_cn.tex
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes
+          path: |
+            resume/resume_en.pdf
+            resume/resume_cn.pdf

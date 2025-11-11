@@ -1,11 +1,11 @@
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
-\usepackage{xeCJK}
-\usepackage{fontspec}
+\usepackage{CJKutf8}
 \usepackage{hyperref}
 \usepackage{setspace}
 \usepackage{multicol}
@@ -18,16 +18,9 @@
     bottom=1.5cm
 }
 \pagestyle{empty}
-% Font setup
-\setmainfont{Times New Roman}
-\setCJKmainfont[
-    Path = ./,
-    UprightFont = SourceHanSerifCN-Regular.otf,
-    BoldFont = SourceHanSerifCN-Bold.otf
-]{SourceHanSerifCN}
 
 % Minimal spacing
-\setstretch{1.0} 
+\setstretch{1.0}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.1em}  % Very small paragraph spacing
 % Compact section formatting
@@ -39,20 +32,17 @@
 
 \setlist[itemize]{leftmargin=1em, itemsep=0pt, topsep=0pt}
 
-% Custom spacing
-\setlength{\parindent}{0pt}
-
 \begin{document}
+\begin{CJK*}{UTF8}{gbsn}
 
 % Header
 \begin{center}
     {\LARGE \textbf{路海阔 Ezra}}\\[0.5em]
-    具备统计建模与系统优化双重背景，专注 AI 算法实现与大模型工程应用。
-    \\
-    熟悉非线性模型、Agent 框架、文档解析等场景，擅长用 C++/Python 构建高性能系统并推动实际落地。
-    \vspace{0.5em}
+    具备统计建模与系统优化双重背景，专注 AI 算法实现与大模型工程应用。\\
+    熟悉非线性模型、Agent 框架、文档解析等场景，擅长用 C++/Python 构建高性能系统并推动实际落地。\\[0.5em]
     \rule{\textwidth}{0.4pt}
 \end{center}
+
 \begin{multicols}{2}
 
 \section{教育经历}
@@ -64,10 +54,11 @@ College of Math and Statistics \hfill GPA: 3.58/4.0\\
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
     \item 核心课程: Statistical Learning, General Linear Regression, Bayesian Statistics, Computational Statistics, Stochastic Process
 \end{itemize}
+
 \subsection{北京理工大学}
 \textbf{统计学学士} \hfill 北京\\
 数学与统计学院 \hfill GPA 3.3/4.0\\
-\textit{2014.09 - 2018.06}
+\textit{2014.09 -- 2018.06}
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
     \item 核心课程: 数学分析, 高等代数, 实分析, 概率论, 数理统计, C 语言等
 \end{itemize}
@@ -75,49 +66,48 @@ College of Math and Statistics \hfill GPA: 3.58/4.0\\
 \section{工作经历}
 
 \subsection{博佳医药科技有限公司}
-\textbf{中级算法研究员} | 上海 | 2023.08 – 至今
-
-\textbf{非线性混合效应模型算法开发}：
+\textbf{中级算法研究员} \hfill 上海 \hfill 2023.08 -- 至今
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
-    \item 复现前沿论文算法（论文 → Python Demo → C++），结果与行业金标准软件一致
-    \item 设计测试用例，进行数据模拟与采集，验证算法准确性
-    \item 优化计算性能，减少重复运算，提升运行效率（如通过 BLAS/LAPACK 替换 Eigen，加速 70\%+）
+    \item 复现前沿 NLME 算法（论文 $\rightarrow$ Python Demo $\rightarrow$ C++），结果与行业金标准软件一致。
+    \item 设计测试用例并搭建模拟流程，验证多种剂量方案下的算法准确性。
+    \item 优化计算性能，减少重复运算，通过 BLAS/LAPACK 替换 Eigen 关键模块，加速 70\% 以上。
 \end{itemize}
 
 \subsection{浙江来未来科技有限公司}
-\textbf{数据科学家｜数据智能部} | 2021.07 – 2023.08
+\textbf{数据科学家｜数据智能部} \hfill 2021.07 -- 2023.08
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
-    \item \textbf{医疗 AI 项目研发}：主导医疗科研合作项目的 AI 算法设计与实现，涵盖数据采集、模型研发、算法部署等全流程，服务医院临床科研与管理需求。
-    \item \textbf{数据搜集及清理流水线搭建}：根据医院临床科室需求, 综合整理不同平台患者数据, 根据多样数据格式搭建对应结构化数据流水线。
-    \item \textbf{多模态数据处理}：基于 ResNet，卷积网络等，处理时间序列（如心率波形）、医学图像等多模态医疗数据，完成特征提取与融合。
+    \item 主导医疗 AI 合作项目的算法设计与实现，覆盖数据采集、模型研发与部署，服务医院科研需求。
+    \item 针对多源数据搭建自动化采集与清洗流水线，满足临床科室的结构化数据需求。
+    \item 处理心率波形、医学图像等多模态数据，基于 ResNet/CNN 完成特征提取与融合。
 \end{itemize}
 
 \section{项目经历}
 
-\subsection{FOCE(First Order Condition Estimation) 与 SAEM 算法开发}
+\subsection{FOCE 与 SAEM 算法开发}
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
-    \item 主导从零实现 FOCEI 与 SAEM 两种主流非线性混合效应模型（NLME）参数估计算法，涵盖 Hessian 近似、梯度计算与优化器集成。
-    \item 参考前沿文献对梯度求解流程进行数值与解析混合优化，显著减少迭代耗时，整体加速约 30\%。
-    \item 构建了可复用的矩阵与三维数组结构，采用内存池管理，减少 Eigen 内部内存分配瓶颈，在数万重复模拟任务中提升内存利用率与运行效率。
-    \item 在多种模型结构与真实数据模拟下，系统性对比输出与 NONMEM、Monolix 等商业软件的一致性，验证算法精度与稳定性。
-    \item 完善了模型比较流程、VPC 预测检验图输出与 Bootstrap 置信区间估计，构建完整的建模与评估工作流。
+    \item 独立实现 FOCEI 与 SAEM 两类 NLME 参数估计算法，涵盖 Hessian 近似、梯度计算与优化器集成。
+    \item 结合数值与解析混合策略提升梯度求解效率，迭代耗时下降约 30\%。
+    \item 构建可复用矩阵与张量结构，采用内存池管理减少 Eigen 内存分配瓶颈，提升模拟效率。
+    \item 对比 NONMEM、Monolix 等商业软件输出，验证算法精度与稳定性。
 \end{itemize}
 
-\subsection{基于大模型的 PDF 文档结构化信息抽取与自动标注系统}
+\subsection{大模型驱动的 PDF 结构化抽取与自动标注}
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
-    \item \textbf{项目背景}：公司内部大量医疗数据以 PDF 格式存储，涉及临床研究方案、统计报告等，且因数据涉密，需使用私有化部署的大语言模型。统计部门频繁需要从 PDF 文档中提取结构化信息，自动化需求强烈。
-    \item \textbf{系统设计与搭建}：使用 Dolphin 及 Deepseek R1 构建从 PDF 到结构化数据的端到端流水线，利用 Dolphin 工具完成版面解析与格式标准化，输出结构化 JSON。
-    \item \textbf{大模型标注接口}：将结构化 JSON 输入私有部署的大模型，结合 prompt 编排与 Agent 架构实现实体识别、字段提取与标签生成，自动完成数据标注。
-    \item \textbf{实际成效}：系统已在多个临床统计项目中落地，显著减少人工抽取工作量，提高数据提取速度与准确率。
+    \item 搭建从 PDF 到标准化 JSON 的全流程，将版面解析与格式归一化前置于 LLM 标注。
+    \item 使用私有部署的 Dolphin 与 DeepSeek-R1，结合 Prompt 编排与 Agent 逻辑实现实体提取与标签生成。
+    \item 系统在多个临床统计项目落地，显著降低人工标注成本并提升准确率。
 \end{itemize}
 
 \section{个人总结}
 \begin{itemize}[leftmargin=1em, itemsep=0pt]
-    \item \textbf{编程语言}：Python, C++, R, Bash, SQL
-    \item \textbf{常用框架}：PyTorch, NumPy, Pandas, Polars, Scikit-learn, Eigen, SymPy, OpenBLAS/LAPACK
-    \item \textbf{建模方法}：FOCEI, SAEM, Bootstrap, Nonlinear Mixed Effects Models, Bayesian Inference
-    \item \textbf{发表}: PAGE 31 (2023) Abstr 10676 [\url{www.page-meeting.org/?abstract=10676}]
-    \item \textbf{语言能力}：中文（母语），英文（TOEFL 110）
+    \item \textbf{编程语言}: Python, C++, R, Bash, SQL
+    \item \textbf{常用框架}: PyTorch, NumPy, Pandas, Polars, Scikit-learn, Eigen, SymPy, OpenBLAS/LAPACK
+    \item \textbf{建模方法}: FOCEI, SAEM, Bootstrap, NLME, Bayesian Inference
+    \item \textbf{发表}: PAGE 31 (2023) Abstract 10676 \href{https://www.page-meeting.org/?abstract=10676}{www.page-meeting.org/?abstract=10676}
+    \item \textbf{语言能力}: 中文（母语），英文（TOEFL 110）
 \end{itemize}
+
 \end{multicols}
+
+\end{CJK*}
 \end{document}
