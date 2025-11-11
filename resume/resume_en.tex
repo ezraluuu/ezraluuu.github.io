@@ -1,0 +1,117 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{multicol}
+
+% Page setup
+\geometry{
+    left=1.5cm,
+    right=1.5cm,
+    top=1.5cm,
+    bottom=1.5cm
+}
+\pagestyle{empty}
+% Font setup
+\setmainfont{Times New Roman}
+
+% Minimal spacing
+\setstretch{1.0} 
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.1em}  % Very small paragraph spacing
+% Compact section formatting
+\titlespacing*{\section}{0pt}{0.4em}{0.2em}
+% Section formatting
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0em}{}
+
+\setlist[itemize]{leftmargin=1em, itemsep=0pt, topsep=0pt}
+
+% Custom spacing
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\LARGE \textbf{路海阔 Ezra}}\\[0.5em]
+    Background in statistical modeling and system optimization, specializing in AI algorithm implementation and large-scale model engineering applications.
+    \\
+    Experienced in nonlinear models, agent frameworks, and document parsing, with expertise in building high-performance systems using C++/Python and driving practical applications.
+    \vspace{0.5em}
+    \rule{\textwidth}{0.4pt}
+\end{center}
+\begin{multicols}{2}
+
+\section{Education}
+
+\subsection{Boston University}
+\textbf{Master of Arts in Statistics} \hfill Boston, MA\\
+College of Math and Statistics \hfill GPA: 3.58/4.0\\
+\textit{2018.09 -- 2020.01}
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item 核心课程: Statistical Learning, General Linear Regression, Bayesian Statistics, Computational Statistics, Stochastic Process
+\end{itemize}
+\subsection{北京理工大学}
+\textbf{统计学学士} \hfill 北京\\
+School of Mathematics and Statistics \hfill GPA 3.3/4.0\\
+\textit{2014.09 - 2018.06}
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item Core Courses: Mathematical Analysis, Advanced Algebra, Real Analysis, Probability Theory, Mathematical Statistics, C Programming, etc.
+\end{itemize}
+
+\section{Work Experience}
+
+\subsection{Bojia Pharmaceutical Technology Co., Ltd.}
+\textbf{Mid-level Algorithm Researcher} | 上海 | 2023.08 – Present
+
+\textbf{Nonlinear Mixed Effects Model Algorithm Development}：
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item 复现前沿论文算法（论文 → Python Demo → C++），结果与行业金标准软件一致
+    \item 设计测试用例，进行数据模拟与采集，验证算法准确性
+    \item 优化计算性能，减少重复运算，提升运行效率（如通过 BLAS/LAPACK 替换 Eigen，加速 70\%+）
+\end{itemize}
+
+\subsection{浙江来未来科技有限公司}
+\textbf{数据科学家｜数据智能部} | 2021.07 – 2023.08
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item \textbf{医疗 AI 项目研发}：主导医疗科研合作项目的 AI 算法设计与实现，涵盖数据采集、模型研发、算法部署等全流程，服务医院临床科研与管理需求。
+    \item \textbf{数据搜集及清理流水线搭建}：根据医院临床科室需求, 综合整理不同平台患者数据, 根据多样数据格式搭建对应结构化数据流水线。
+    \item \textbf{多模态数据处理}：基于 ResNet，卷积网络等，处理时间序列（如心率波形）、医学图像等多模态医疗数据，完成特征提取与融合。
+\end{itemize}
+
+\section{Projects}
+
+\subsection{FOCE(First Order Condition Estimation) 与 SAEM 算法开发}
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item 主导从零实现 FOCEI 与 SAEM 两种主流非线性混合效应模型（NLME）参数估计算法，涵盖 Hessian 近似、梯度计算与优化器集成。
+    \item 参考前沿文献对梯度求解流程进行数值与解析混合优化，显著减少迭代耗时，整体加速约 30\%。
+    \item 构建了可复用的矩阵与三维数组结构，采用内存池管理，减少 Eigen 内部内存分配瓶颈，在数万重复模拟任务中提升内存利用率与运行效率。
+    \item 在多种模型结构与真实数据模拟下，系统性对比输出与 NONMEM、Monolix 等商业软件的一致性，验证算法精度与稳定性。
+    \item 完善了模型比较流程、VPC 预测检验图输出与 Bootstrap 置信区间估计，构建完整的建模与评估工作流。
+\end{itemize}
+
+\subsection{基于大模型的 PDF 文档结构化信息抽取与自动标注系统}
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item \textbf{项目背景}：公司内部大量医疗数据以 PDF 格式存储，涉及临床研究方案、统计报告等，且因数据涉密，需使用私有化部署的大语言模型。统计部门频繁需要从 PDF 文档中提取结构化信息，自动化需求强烈。
+    \item \textbf{系统设计与搭建}：使用 Dolphin 及 Deepseek R1 构建从 PDF 到结构化数据的端到端流水线，利用 Dolphin 工具完成版面解析与格式标准化，输出结构化 JSON。
+    \item \textbf{大模型标注接口}：将结构化 JSON 输入私有部署的大模型，结合 prompt 编排与 Agent 架构实现实体识别、字段提取与标签生成，自动完成数据标注。
+    \item \textbf{实际成效}：系统已在多个临床统计项目中落地，显著减少人工抽取工作量，提高数据提取速度与准确率。
+\end{itemize}
+
+\section{个人总结}
+\begin{itemize}[leftmargin=1em, itemsep=0pt]
+    \item \textbf{编程语言}：Python, C++, R, Bash, SQL
+    \item \textbf{常用框架}：PyTorch, NumPy, Pandas, Polars, Scikit-learn, Eigen, SymPy, OpenBLAS/LAPACK
+    \item \textbf{建模方法}：FOCEI, SAEM, Bootstrap, Nonlinear Mixed Effects Models, Bayesian Inference
+    \item \textbf{发表}: PAGE 31 (2023) Abstr 10676 [\url{www.page-meeting.org/?abstract=10676}]
+    \item \textbf{语言能力}：中文（母语），英文（TOEFL 110）
+\end{itemize}
+\end{multicols}
+\end{document}
